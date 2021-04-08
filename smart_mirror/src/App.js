@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled, { createGlobalStyle} from "styled-components";
 import Weather from "./Components/Weather/Weather";
+import Clock from 'react-live-clock';
 
 /* This is the main file
 * it brings together every component of the program and displays it in the wanted order and direction (hopefully)*/
@@ -32,15 +33,17 @@ class App extends Component {
     }
 
     componentDidMount() {
-        this.getWeather();
+
+        /*this.getWeather();*/
         this.weatherInterval = setInterval(() => this.getWeather(), 600000);
     }
 
     componentWillUnmount() {
         clearInterval(this.weatherInterval);
+        clearInterval(this.dateTimeInterval);
     }
 
-    getWeather() {
+    /*getWeather() {
         fetch('http://localhost:4000/weather', {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
@@ -67,7 +70,7 @@ class App extends Component {
                     },
                 });
             });
-    }
+    }*/
 
     render() {
         const { weather} = this.state;
@@ -76,16 +79,13 @@ class App extends Component {
                 <GlobalStyles />
                 <LeftSidebar className="Left-sidebar">
                     <Clock
-                        dateTime={dateTime}
-                        timeZone="us-EN"
-                        dateOpts={{
-                            weekday: 'long',
-                            year: 'numeric',
-                            month: 'long',
-                            day: 'numeric',
-                        }}
-                        timeOpts={{ hour: '2-digit', minute: '2-digit' }}
-                    />
+                        format={'hh:mm:ssa'}
+                        style={{fontSize: '1.5em'}}
+                        ticking={true}/>
+                    <div>{""}</div>
+                    <Clock
+                        format={'dddd, MMMM Mo, YYYY'}
+                        style={{fontSize: '1.5em'}}/>
                 </LeftSidebar>
                 <RightSidebar>
                     {weather ? <Weather weather={weather} /> : <div>Loading...</div>}
