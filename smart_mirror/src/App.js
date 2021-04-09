@@ -2,19 +2,20 @@ import React, { Component } from "react";
 import styled, { createGlobalStyle} from "styled-components";
 import Weather from "./Components/Weather/Weather";
 import Clock from 'react-live-clock';
+import AnalogClock, { Themes } from 'react-analog-clock';
 
 /* This is the main file
 * it brings together every component of the program and displays it in the wanted order and direction (hopefully)*/
 
 const GlobalStyles = createGlobalStyle`
-    body {
-      padding: 20px;
-      background-color: #000;
-      color: aqua;
-      @import url('https://fonts.googleapis.com/css?family=Aldrich');
-      font-family: 'Aldrich', sans-serif;
-    }
-    `;
+  body {
+    padding: 20px;
+    background-color: #000;
+    color: #ff4308;
+    @import url('https://fonts.googleapis.com/css?family=Aldrich');
+    font-family: 'Aldrich', sans-serif;
+  }
+`;
 
 const LeftSidebar = styled.div`
     float: left;
@@ -78,13 +79,17 @@ class App extends Component {
             <div className={App}>
                 <GlobalStyles />
                 <LeftSidebar className="Left-sidebar">
-                    <Clock
-                        format={'hh:mm:ssa'}
-                        style={{fontSize: '1.5em'}}
-                        ticking={true}/>
+                    <AnalogClock theme={Themes.dark} />
                     <div>{""}</div>
                     <Clock
-                        format={'dddd, MMMM Mo, YYYY'}
+                        format={'hh:mm'}
+                        style={{fontSize: '5.0em'}}
+                        ticking={true}
+                        onChange={date => console.log(date)}/>
+                    <div>{""}</div>
+                    <Clock
+                        format={'dddd, MMMM , YYYY'}
+                        format={'dddd, MMMM Do, YYYY'}
                         style={{fontSize: '1.5em'}}/>
                 </LeftSidebar>
                 <RightSidebar>
