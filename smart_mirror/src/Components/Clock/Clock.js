@@ -65,28 +65,15 @@ export default class Clock extends React.Component {
         return (
             <div hidden={!this.props.visible} style={styles.container}>
                 <Row>
-                    <Col xs={12} />
-                    <div style={styles.smallText}> {day}</div>
-                    <Col />
-                </Row>
-                <Row>
                     <Col xs={12}>
                         <Row>
                             <Col xs={12}>
                                 <div style={styles.clock}>
                                     {this.state.date.format('HH:mm')}
-                                    <span style={styles.clockSeconds}>{this.state.date.format('ss')}</span>
                                 </div>
                             </Col>
                         </Row>
                     </Col>
-                </Row>
-                <Row>
-                    <Col xs={12} />
-                    <p hidden={!this.props.showTemperature} style={styles.smallText}>
-                        {this.props.temperature} °C
-                    </p>
-                    <Col />
                 </Row>
             </div>
         );
