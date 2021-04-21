@@ -1,17 +1,30 @@
 import React from 'react';
 
+const styles = {
+    news: {
+        color: 'white',
+        fontSize: '2.8em',
+        alignContent: 'center',
+        alignItems: 'center'
+    },
+    image: {
+
+    }
+}
 const NewSingle = ({item}) => (
     <div className={"card"}>
         <div className={"card-image"}>
-            <h5>{item.title}</h5>
-            <img className={"card-img-top"} src={item.urlToImage} alt={item.title}/>
+            <h5 style={styles.news}>{item.title}</h5>
+            <img className={"card-img-top"} src={item.urlToImage} alt={item.title} style={{
+                height: 400,
+                width: 600,
+                resizeMode: 'center'
+            }}/>
             <span class={"card-title"}>{item.source.name}</span>
         </div>
 
-        <div className={"card-action"}>
-            <a href={item.url} className={"btn btn-primary"} target={"_blank"}>Full article</a>
-        </div>
     </div>
 );
 
 export default NewSingle;
+

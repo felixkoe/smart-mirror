@@ -10,7 +10,7 @@ const styles = {
         marginTop: '30%',
     },
     route: {
-        color: 'black',
+        color: 'white',
         fontSize: '1.7em',
         textAlign: 'left',
     },
