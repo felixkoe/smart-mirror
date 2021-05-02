@@ -37,7 +37,7 @@ const config = {
     forecast: true,
     news: true,
     tempPirSensor: false,
-    temperatureGraph: false,
+    temperatureGraph: true,
     articles: false,
   },
 };

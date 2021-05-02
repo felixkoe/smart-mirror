@@ -25,6 +25,8 @@
     "react-native-appearance": "^0.3.4",
     "react-scripts": "4.0.3",
     "react-skycons": "^0.8.8",
+    "recharts": "^2.0.9",
+    "smoothscroll-polyfill": "^0.4.4",
     "styled-components": "^5.2.3",
     "web-vitals": "^1.0.1"
   },

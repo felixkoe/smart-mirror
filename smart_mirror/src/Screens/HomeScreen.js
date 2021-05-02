@@ -2,7 +2,6 @@ import React from "react";
 
 import Weather from "../Components/Weather/Weather";
 import Clock from "../Components/Clock/Clock";
-import Forecast from "../Components/Weather/Forecast";
 
 import moment from "moment";
 
@@ -91,9 +90,7 @@ export default class HomeScreen extends React.Component {
 
     render() {
         let dateTime,
-            weather,
-            forecast,
-            temperatureGraph;
+            weather
         if(config.modules.dateTime === true) {
             dateTime = (
                 <Clock
@@ -105,9 +102,6 @@ export default class HomeScreen extends React.Component {
         }
         if (config.modules.weather === true) {
             weather = <Weather visible={this.state.visibility.weather} phrases={phrases} />;
-        }
-        if (config.modules.forecast === true) {
-            forecast = <Forecast visible={this.state.visibility.forecasts} />;
         }
 
         const AppStyles = {
@@ -122,7 +116,6 @@ export default class HomeScreen extends React.Component {
 
         return (
             <div style={AppStyles} className="App">
-                {temperatureGraph}
 
                 <Row className="Container">
                     <Col xs={4}>
@@ -134,11 +127,6 @@ export default class HomeScreen extends React.Component {
                     </Col>
                 </Row>
                 <Row style={{ height: '1%' }} />
-                <Row>
-                    <Col sm={{offset: 1}}>
-                        <Row>{forecast}</Row>
-                    </Col>
-                </Row>
             </div>
         );
     }
