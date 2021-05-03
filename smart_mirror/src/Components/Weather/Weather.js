@@ -3,6 +3,10 @@ import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { getCurrentWeather, fileFromInt} from "../../lib/smhi";
 
+import day1 from '../../resources/weather-icons/1_day.png';
+
+console.log(day1);
+
 const styles = {
     container: {},
     weather: {
@@ -12,8 +16,9 @@ const styles = {
         textAlign: 'right',
     },
     weatherImg: {
-        maxWidth: '100%',
-        height: 'auto',
+        maxWidth: '50%',
+        height: '170px',
+
     },
 };
 
@@ -60,7 +65,13 @@ export default class Weather extends React.Component {
                 />
             );
         } else {
-            weatherSymbol = null;
+            weatherSymbol = (
+                <img
+                    style={styles.weatherImg}
+                    role="presentation"
+                    src={day1}
+                />
+            );
         }
         let windDirectionSymbol;
         if (this.state.weather.windDirection) {
@@ -87,17 +98,17 @@ export default class Weather extends React.Component {
         return (
             <div hidden={!this.props.visible} style={styles.container}>
                 <Row>
-                    <Col xs={8}>
-                        <p style={styles.weather}>{this.state.weather.temp} °C</p>
+                    <Col xs={4}>
+                        <p style={styles.weather}>Current: {this.state.weather.temp}22.6 °C</p>
                         <p style={styles.weather}>
-                            {this.props.phrases.feels_like} {this.state.weather.windChill} °C
+                            Feels like:{this.props.phrases.feels_like} {this.state.weather.windChill} 20.0 °C
                         </p>
                         <p style={styles.weather}>
-                            {this.props.phrases.wind_speed} {this.state.weather.windVelocity} m/s
+                            {this.props.phrases.wind_speed} {this.state.weather.windVelocity}Wind: 0.3 m/s
                         </p>
                         {windDirectionSymbol}
                     </Col>
-                    <Col style={{ textAlign: 'center', paddingLeft: 0 }} xs={4}>
+                    <Col style={{ textAlign: 'right', paddingLeft: 0, marginTop:-100, marginRight: 230}} xs={4}>
                         {weatherSymbol}
                     </Col>
                 </Row>

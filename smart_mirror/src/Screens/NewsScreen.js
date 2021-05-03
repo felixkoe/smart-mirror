@@ -111,11 +111,11 @@ export default class NewsScreen extends React.Component {
 
                 <Row className="Container">
                     <Col xs={4}>
-                        {dateTime}
+                        <Row style={{marginLeft: 20}}>{dateTime}</Row>
                     </Col>
                     <Col xs={4} />
                     <Col xs={4}>
-                        <Row>{news}</Row>
+                        <Row style={{marginLeft: 20}}>{news}</Row>
                     </Col>
                 </Row>
                 <Row style={{ height: '1%' }} />

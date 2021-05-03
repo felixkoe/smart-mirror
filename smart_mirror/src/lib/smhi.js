@@ -62,11 +62,12 @@ const getKeyName = key => {
 
 export function getCurrentWeather(callback) {
     const url =
-        'https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/' +
-        config.SMHI_COORD.longitude +
-        '/lat/' +
+        'https://api.openweathermap.org/data/2.5/weather?lat=' +
         config.SMHI_COORD.latitude +
-        '/data.json';
+        '&lon=' +
+        config.SMHI_COORD.latitude +
+        '&appid=' +
+        config.SMHI_COORD.apikey;
 
     return fetch(url)
         .then(checkStatus)
@@ -75,8 +76,10 @@ export function getCurrentWeather(callback) {
 }
 
 function extractCurrentWeather(forecast) {
+    forecast.timeSeries = undefined;
     let now = new moment();
     const currentWeatherIndex = forecast.timeSeries.findIndex(hf => {
+        hf.validTime = undefined;
         const forecastDate = new moment(hf.validTime);
         return forecastDate.isAfter(now);
     });

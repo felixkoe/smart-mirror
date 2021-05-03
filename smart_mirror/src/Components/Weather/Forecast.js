@@ -1,9 +1,10 @@
 import React from 'react';
 
-import { Col, Row } from 'react-bootstrap';
+import {Col, Row } from 'react-bootstrap';
 import { getForecast } from "../../lib/fetch";
 import moment from 'moment';
 import Skycons from 'react-skycons';
+
 const config = require('../../config/config');
 
 const styles = {

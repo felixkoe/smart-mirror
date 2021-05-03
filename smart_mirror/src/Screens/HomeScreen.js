@@ -50,37 +50,12 @@ export default class HomeScreen extends React.Component {
                     temperature: data.temperature,
                 });
                 break;
-            case 'recording':
-                this.setState({
-                    isRecording: message.data.isRecording,
-                });
-                break;
-            case 'motion':
-                if (!this.state.message.visible) {
-                    this.setState({
-                        message: {
-                            text: data.message,
-                            visible: true,
-                        },
-                    });
-                    setTimeout(() => {
-                        this.setState({
-                            message: {
-                                visible: false,
-                            },
-                        });
-                    }, 10000);
-                }
-                break;
             case 'visibility':
                 const prevStateVisibility = this.state.visibility;
                 prevStateVisibility[data.component] = data.visible;
                 this.setState({
                     visibility: prevStateVisibility,
                 });
-                break;
-            case 'command':
-                this.refs[data.component].onEvent(data);
                 break;
             default:
                 console.log('Unhandled event: ' + message.event);
@@ -96,7 +71,7 @@ export default class HomeScreen extends React.Component {
                 <Clock
                     temperature={this.state.temperature}
                     visible={this.state.visibility.clock}
-                    /*showTemperature={config.modules.tempPirSensor}*/ //can be used when temp Sensor data is ready
+                    showTemperature={config.modules.tempPirSensor} //can be used when temp Sensor data is ready
                 />
             );
         }
@@ -115,15 +90,16 @@ export default class HomeScreen extends React.Component {
         };
 
         return (
-            <div style={AppStyles} className="App">
+            <div style={AppStyles} className="HomeScreen">
 
                 <Row className="Container">
+
                     <Col xs={4}>
-                        {dateTime}
+                        <Row style={{marginLeft: 20}}>{dateTime}</Row>
                     </Col>
                     <Col xs={4} />
                     <Col xs={4}>
-                        <Row>{weather}</Row>
+                        <Row style={{ marginTop: -150 }}>{weather}</Row>
                     </Col>
                 </Row>
                 <Row style={{ height: '1%' }} />

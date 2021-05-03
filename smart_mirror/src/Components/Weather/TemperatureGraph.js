@@ -6,6 +6,7 @@ import moment from "moment";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid } from 'recharts';
 
 import { getTemperaturesSevenDays } from "../../lib/fetch";
+import PropTypes from "prop-types";
 
 const customModalStyle = {
     overlay: {
@@ -24,7 +25,7 @@ const customModalStyle = {
 
 export default class TemperatureGraph extends BaseComponent {
     static propTypes = {
-        visible: React.PropTypes.bool,
+        visible: PropTypes.bool,
     };
 
     static defaultProps = {

@@ -1,11 +1,11 @@
 const config = {
   styles: {
-    fontFamily: 'Sawasdee',
+    fontFamily: 'Seaside',
     fontWeight: 500,
-    textScale: '0.8em', // relative font-size of text. 1em ~= 16px
-    paddingTop: '5%', // space from the top edge
-    paddingLeft: '7%', // space from the left edge
-    paddingRight: '6%', // space from the right edge
+    textScale: '1.0em', // relative font-size of text. 1em ~= 16px
+    paddingTop: '0%', // space from the top edge
+    paddingLeft: '0%', // space from the left edge
+    paddingRight: '0%', // space from the right edge
     paddingBottom: '0%', // space from the bottom edge
   },
 
@@ -13,6 +13,7 @@ const config = {
   SMHI_COORD: {
     longitude: '12.101624',
     latitude: '49.013432',
+    apikey: '0a9a82b834a6ed11e67d094cb7bbef77'
   },
   forecastLabelName: 'Forecast here',
   svtNewsUrl:
@@ -32,13 +33,12 @@ const config = {
 
   modules: {
     dateTime: true,
-    transfer: false,
     weather: true,
     forecast: true,
     news: true,
     tempPirSensor: false,
     temperatureGraph: true,
-    articles: false,
+    articles: true,
   },
 };
 
