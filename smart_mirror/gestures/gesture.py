@@ -17,6 +17,8 @@ dirs = {                                                            # for printi
     APDS9960_DIR_RIGHT: "right",
     APDS9960_DIR_UP: "up",
     APDS9960_DIR_DOWN: "down",
+    APDS9960_DIR_FAR: "far",
+    APDS9960_DIR_NEAR: "near"
 }
 
 GPIO.add_event_detect(7, GPIO.FALLING)                              # detects falling edge and triggers event
@@ -31,3 +33,6 @@ while True:                                                         # infinite l
     if apds.isGestureAvailable():                                   # if motion is detected, enter if statement
         motion = apds.readGesture()                                 # read gesture
         print("Gesture={}".format(dirs.get(motion, "unknown")))     # prints out which direction the motion was
+        file = open("gesture.txt", "w")
+        file.write("{}".format(dirs.get(motion, "unknown")))
+        file.close()
