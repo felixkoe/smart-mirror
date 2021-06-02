@@ -4,20 +4,19 @@ import React from "react";
 //TODO: - Make News self-scrollable
 //      - Add clock on every page at the top (small)
 //      - create working API for weather and forecast
-//      - render pictograms for forecast + restyle
 //      - add calender screen + API
 //      - Forecast(Screen)
-//      - Navigation for all screens
+//      - (Navigation for all screens)
 
 import HomeScreen from "./Screens/HomeScreen";
 import NewsScreen from "./Screens/NewsScreen";
 import ForecastScreen from "./Screens/ForecastScreen";
 
 export default function App() {
-    return (
-        <div>
-            <NewsScreen/>
-        </div>
-    )
+        return (
+            <div>
+                <HomeScreen/>
+            </div>
+        )
 }
 
